@@ -31,8 +31,7 @@
                 <a href="#skills" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3 border-b border-blue-500">Umiejętności</a>
                 <a href="#experience" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3 border-b border-blue-500">Doświadczenie</a>
                 <a href="#contact" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3">Kontakt</a>
-            </div>    
-        </div>
+        </div>    
     </nav>
 </body>
 </html>
