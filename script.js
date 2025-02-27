@@ -1,12 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const bars = document.querySelectorAll(".progress-bar");
-
-    bars.forEach(bar => {
-        let percentage = bar.getAttribute("data-percentage");
-        bar.style.width = percentage + "%";
-    });
-});
-
 document.addEventListener("DOMContentLoaded", function () {
     const elements = document.querySelectorAll("[data-animate]");
     function checkPosition() {
@@ -22,6 +13,48 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     window.addEventListener("scroll", checkPosition);
     checkPosition();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section[data-animate]");
+    const bars = document.querySelectorAll(".progress-bar");
+
+    function animateSection(section) {
+        section.classList.add("visible");
+        let fadeElements = section.querySelectorAll(".fadeInDelay");
+        fadeElements.forEach(element => {
+            element.classList.add("animate-fadeInDelay");
+        });
+        let zoomInElements = section.querySelectorAll(".zoomIn");
+        zoomInElements.forEach(element => {
+            element.classList.add("animate-zoomIn");
+        });
+    }
+
+    function animateProgressBars() {
+        bars.forEach(bar => {
+            let percentage = bar.getAttribute("data-percentage");
+            bar.style.width = percentage + "%";
+        });
+    }
+
+    sections.forEach(section => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSection(entry.target);
+
+                    if (entry.target.id === "skills") {
+                        animateProgressBars();
+                    }
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(section);
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
