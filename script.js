@@ -1,29 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll("[data-animate]");
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.intersectionRatio > 0.01) {
-                entry.target.classList.add("opacity-100");
-                entry.target.classList.add("translate-x-0");
-                entry.target.classList.remove("translate-x-20", "-translate-x-20");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        root: null,
-        rootMargin: "0px",
-        threshold: [0.01] // Wartość progowa 10%
-    });
-
-    elements.forEach(el => {
-        observer.observe(el);
-    });
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section[data-animate]");
     const bars = document.querySelectorAll(".progress-bar");
 
@@ -36,6 +11,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let zoomInElements = section.querySelectorAll(".zoomIn");
         zoomInElements.forEach(element => {
             element.classList.add("animate-zoomIn");
+        });
+        let otherDivsWithAnimation = section.querySelectorAll("[data-animate]");
+        otherDivsWithAnimation.forEach(element => {
+            element.classList.add("visible");
         });
     }
 
@@ -59,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.125 });
 
         observer.observe(section);
     });
