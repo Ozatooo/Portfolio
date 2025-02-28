@@ -1,19 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
     const elements = document.querySelectorAll("[data-animate]");
-    function checkPosition() {
-        const triggerBottom = window.innerHeight * 0.9;
-        elements.forEach(el => {
-            const boxTop = el.getBoundingClientRect().top;
-            if (boxTop < triggerBottom) {
-                el.classList.add("opacity-100");
-                el.classList.add("translate-x-0");
-                el.classList.remove("translate-x-20", "-translate-x-20");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0.01) {
+                entry.target.classList.add("opacity-100");
+                entry.target.classList.add("translate-x-0");
+                entry.target.classList.remove("translate-x-20", "-translate-x-20");
+                observer.unobserve(entry.target);
             }
         });
-    }
-    window.addEventListener("scroll", checkPosition);
-    checkPosition();
+    }, {
+        root: null,
+        rootMargin: "0px",
+        threshold: [0.01] // Wartość progowa 10%
+    });
+
+    elements.forEach(el => {
+        observer.observe(el);
+    });
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("section[data-animate]");
