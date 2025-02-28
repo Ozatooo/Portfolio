@@ -28,7 +28,7 @@ const translationsPl = {
     experience_desc_phpdev_repair: "Naprawa i optymalizacja istniejących modułów",
     experience_desc_phpdev_docs: "Tworzenie dokumentacji projektowej",
     experience_desc_phpdev_plans: "Proponowanie oraz wdrażanie usprawnień",
-    contact_address: 'Rogaszyce ul. Żyrowska 44',
+    contact_address: '63-500 Rogaszyce',
     contact_email_address: 'lukasz.rybarz12@gmail.com',
     contact_telephone_number: '+48 883 842 077',
     contact_facebook: 'facebook.com',

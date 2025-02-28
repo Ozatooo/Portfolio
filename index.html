@@ -9,9 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-blue-100 text-blue-900">
-    <nav class="bg-blue-900 text-white p-4 shadow-md fixed w-full top-0 left-0 z-50 transition-transform duration-300">
+    <nav class="bg-blue-900 text-white p-4 shadow-md fixed w-screen top-0 left-0 z-50 transition-transform duration-300">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl font-bold" data-translate="portfolio_title"></a>
+            <a href="#" class="w-1/4 text-xl font-bold" data-translate="portfolio_title"></a>
             <div class="flex items-center space-x-2">
                 <div class="relative flex items-center">
                     <span id="label-pl" class="text-blue-1900 font-semibold transition">PL</span>
@@ -24,7 +24,7 @@
                     <span id="label-en" class="text-gray-500 font-semibold transition">EN</span>
                 </div>
             </div>
-            <ul class="hidden md:flex space-x-6">
+            <ul class="w-2/4 hidden md:flex space-x-6 justify-end">
                 <li><a href="#about" class="hover:text-blue-300" data-translate="about"></a></li>
                 <li><a href="#skills" class="hover:text-blue-300" data-translate="skills"></a></li>
                 <li><a href="#experience" class="hover:text-blue-300" data-translate="experience"></a></li>
@@ -36,14 +36,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-        </div>
-        <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-blue-900 bg-opacity-80 backdrop-blur-md transform -translate-y-full transition-transform duration-300 flex flex-col items-center justify-center text-xl">
-                <button id="close-menu" class="menu-element hidden absolute top-5 right-5 text-3xl">&times;</button>
-                <a href="#about" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3 border-b border-blue-500" data-translate="about"></a>
-                <a href="#skills" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3 border-b border-blue-500" data-translate="skills"></a>
-                <a href="#experience" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3 border-b border-blue-500" data-translate="experience"></a>
-                <a href="#contact" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3" data-translate="contact"></a>
-        </div>    
+            <div id="mobile-menu" class="w-2/4 fixed top-0 left-0 w-full h-full bg-blue-900 bg-opacity-80 backdrop-blur-md transform -translate-y-full transition-transform duration-300 flex flex-col items-center justify-center text-xl">
+                    <button id="close-menu" class="menu-element hidden absolute top-5 right-5 text-3xl">&times;</button>
+                    <a href="#about" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3 border-b border-blue-500" data-translate="about"></a>
+                    <a href="#skills" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3 border-b border-blue-500" data-translate="skills"></a>
+                    <a href="#experience" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3 border-b border-blue-500" data-translate="experience"></a>
+                    <a href="#contact" class="menu-element hidden menu-link hover:text-blue-300 w-3/4 text-center py-3" data-translate="contact"></a>
+            </div>
+    </div>
     </nav>
     <main class="container mx-auto p-6">
         <section id="about" class="my-10 p-6 bg-white shadow-lg rounded-lg flex flex-col md:flex-row items-center md:items-start opacity-0" data-animate="right">
@@ -170,16 +170,16 @@
             <h2 class="text-2xl font-bold mb-6 text-center" data-translate="contact"></h2>
             <div class="flex flex-wrap justify-center gap-6">
                 <div class="flex items-center space-x-2 t opacity-0 zoomIn">
-                    <img src="./img/adress-mark.png" alt="Adres" class="w-8 h-8 object-contain">
+                    <img src="./img/adress-mark.png" alt="Address" class="w-8 h-8 object-contain">
                     <p data-translate="contact_address"></p>
                 </div>
                 <div class="flex items-center space-x-2 transform t opacity-0 zoomIn">
                     <img src="./img/email-mark.png" alt="Email" class="w-8 h-8 object-contain">
-                    <p data-translate="contact_email_address"></p>
+                    <a href="mailto:lukasz.rybarz12@gmail.com" class="text-blue-500 hover:underline" data-translate="contact_email_address"></a>
                 </div>
                 <div class="flex items-center space-x-2 t opacity-0 zoomIn">
-                    <img src="./img/telephone-mark.png" alt="Telefon" class="w-8 h-8 object-contain">
-                    <p data-translate="contact_telephone_number"></p>
+                    <img src="./img/telephone-mark.png" alt="Telephone" class="w-8 h-8 object-contain">
+                    <a href="tel:+48883842077" class="text-blue-500 hover:underline" data-translate="contact_telephone_number"></a>
                 </div>
                 <div class="flex items-center space-x-2 transform t opacity-0 zoomIn">
                     <img src="./img/facebook-mark.png" alt="Facebook" class="w-8 h-8 object-contain">
