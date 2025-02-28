@@ -37,6 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
         zoomInElements.forEach(element => {
             element.classList.add("animate-zoomIn");
         });
+        let otherDivsWithAnimation = section.querySelectorAll("[data-animate]");
+        otherDivsWithAnimation.forEach(element => {
+            element.classList.add("visible");
+        });
     }
 
     function animateProgressBars() {
