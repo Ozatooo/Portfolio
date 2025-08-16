@@ -9,8 +9,8 @@ body{
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes zoomIn {
@@ -19,9 +19,19 @@ body{
 }
 
 @keyframes fadeInDelay {
-    0% { opacity: 0; transform: translateY(10px); }
+    0% { opacity: 0; transform: translateX(10px); }
     50% { opacity: 0; }
-    100% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes section-animation-right {
+    0% { opacity: 0; transform: translateX(60px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes section-animation-left {
+    0% { opacity: 0; transform: translateX(-60px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
 .animate-fadeIn {
@@ -88,15 +98,23 @@ section[data-animate] {
     transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
 }
 
-section[data-animate="left"] {
-    transform: translateX(-60px);
-}
 
-section[data-animate="right"] {
-    transform: translateX(60px);
-}
-
-section[data-animate].visible {
+section[data-animate="left"].visible {
     opacity: 1;
-    transform: translateX(0);
+    animation: section-animation-right 1s ease-out forwards;
+}
+
+section[data-animate="right"].visible {
+    opacity: 1;
+    animation: section-animation-left 1s ease-out forwards;
+}
+
+#experience div.visible[data-animate="right"] {
+    opacity: 1;
+    animation: section-animation-left 1.5s ease-out forwards;
+}
+
+#experience div.visible[data-animate="left"] {
+    opacity: 1;
+    animation: section-animation-right 1.5s ease-out forwards;
 }
